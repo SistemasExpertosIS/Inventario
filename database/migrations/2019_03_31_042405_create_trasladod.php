@@ -36,6 +36,6 @@ class CreateTrasladod extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('TrasladoD');
     }
 }

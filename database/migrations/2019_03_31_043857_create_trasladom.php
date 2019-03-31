@@ -13,16 +13,6 @@ class CreateTrasladom extends Migration
      */
     public function up()
     {
-        //
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
         Schema::create('TrasladoM', function(Blueprint $table){
             $table->increments('idTrasladoM');
             $table->string('Descripcion', 45);
@@ -42,5 +32,15 @@ class CreateTrasladom extends Migration
             $table->foreign('idTransporte')->references('idTransporte')->on('Transporte')->onDelete('cascade');
             
         });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('TrasladoM');
     }
 }
