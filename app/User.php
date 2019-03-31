@@ -18,6 +18,16 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    public function sucursal () {
+        return $this->hasOne('App\Sucursal', 'id', 'idUsuario');
+    }
+    public function usuariorecibe () {
+        return $this->hasOne('App\TrasladoM', 'id', 'idUsuarioRecibe');
+    }
+    public function usuarioenvia () {
+        return $this->hasOne('App\TrasladoM', 'id', 'idUsuarioEnvia');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
