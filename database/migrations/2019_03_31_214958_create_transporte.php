@@ -17,7 +17,7 @@ class CreateTransporte extends Migration
             $table->increments('idTransporte');
             $table->string('Placa', 45);
             $table->string('NombreChofer', 45);
-            $table->string('NombreChofer', 45);
+            $table->string('idChofer', 45);
             $table->timestamps();
         });
     }

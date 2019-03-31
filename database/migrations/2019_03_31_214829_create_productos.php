@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSucursal extends Migration
+class CreateProductos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateSucursal extends Migration
      */
     public function up()
     {
-        Schema::create('Sucursal', function(Blueprint $table){
-            $table->increments('idSucursal');
+        Schema::create('Productos', function(Blueprint $table) {
+            $table->increments('idProducto');
             $table->string('Nombre', 45);
-            $table->string('Direccion', 45);
-            $table->string('Abv', 45);
-            $table->integer('idUsuario')->unsigned();
+            $table->string('Codigo', 45);
+            $table->string('Descripcion', 45);
+            $table->boolean('habilitado');
             $table->timestamps();
-
-            $table->foreign('idUsuario')->references('id')->on('user')->onDelete('cascade');
-            
         });
     }
 
@@ -33,6 +30,6 @@ class CreateSucursal extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Sucursal');
+        Schema::dropIfExist('Productos');
     }
 }
